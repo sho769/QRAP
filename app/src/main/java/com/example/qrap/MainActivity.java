@@ -21,7 +21,7 @@ import com.google.zxing.Result;
 
 public class MainActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
-    public String status="";
+    public String status="saw";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +50,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void onSubmit(View view)
     {
-        EditText s = (EditText) findViewById(R.id.stdName);
-        String name = s.toString();
+        EditText s = (EditText) findViewById(R.id.Name);
+        String name = s.getText().toString();
         saveData(name,status);
     }
     private void saveData(String name, String status){
