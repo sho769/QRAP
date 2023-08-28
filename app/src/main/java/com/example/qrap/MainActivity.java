@@ -21,7 +21,7 @@ import com.google.zxing.Result;
 
 public class MainActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
-    public String status="saw";
+    public String status="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +57,12 @@ public class MainActivity extends AppCompatActivity {
         saveData(name,status);
     }
     private void saveData(String name, String status){
-        String url="https://script.google.com/macros/s/AKfycbz67iB6c_vCefzbm5smdWF9utLiwv5RSXXoq5duLRxEK_NWp9vnw4KxjOiVTVkBEkiJ/exec";
+        String url="https://script.google.com/macros/s/AKfycbz67iB6c_vCefzbm5smdWF9utLiwv5RSXXoq5duLRxEK_NWp9vnw4KxjOiVTVkBEkiJ/exec?";
         url=url+"action=create&name="+name+"&status="+status;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "created", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
